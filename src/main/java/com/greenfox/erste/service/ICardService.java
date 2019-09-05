@@ -25,6 +25,8 @@ public interface ICardService {
 
   void delete(String id);
 
+  void invalidateCard(String id);
+
   Card convertFromDto(CardInDTO cardInDTO);
 
   CardOutDTO convertToDto(Card card);

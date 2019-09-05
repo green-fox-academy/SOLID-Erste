@@ -70,6 +70,12 @@ public class CardService implements ICardService {
   }
 
   @Override
+  public void invalidateCard(String id) {
+    Card card = cardRepository.findById(id).orElse(null);
+    card.setDisabled(true);
+    cardRepository.save(card);
+  }
+
   public Card convertFromDto(CardInDTO cardInDTO) {
 
     return modelMapper.map(cardInDTO, Card.class);

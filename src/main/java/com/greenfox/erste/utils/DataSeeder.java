@@ -1,4 +1,4 @@
-package com.greenfox.erste.utils;
+package com.greenfox.erste.Utils;
 
 import com.greenfox.erste.Models.Card;
 import com.greenfox.erste.Models.ContactInfo;
@@ -22,9 +22,8 @@ public class DataSeeder implements ApplicationRunner {
   }
 
   @Override
-  public void run(ApplicationArguments args) throws Exception {
+  public void run(ApplicationArguments args) {
     for (int i = 0; i < 10; i++) {
-
       Card newCard = new Card("Visa",
               "540720070266639" + i,
               "12/20",
