@@ -1,5 +1,6 @@
 package com.greenfox.erste.Models;
 
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -17,24 +18,23 @@ public class ContactInfo {
   @Id
   private String contact;
   @OneToMany
-  @NotNull
-  private Card card;
+  private List<Card> cards;
 
-  public ContactInfo(@NotNull String type, @NotNull String contact, @NotNull Card card) {
+  public ContactInfo(@NotNull String type, @NotNull String contact, List<Card> cards) {
     this.type = type;
     this.contact = contact;
-    this.card = card;
+    this.cards = cards;
   }
 
   public ContactInfo() {
   }
 
-  public Card getCard() {
-    return card;
+  public List<Card> getCards() {
+    return cards;
   }
 
-  public void setCard(Card card) {
-    this.card = card;
+  public void setCards(List<Card> cards) {
+    this.cards = cards;
   }
 
   public String getType() {
