@@ -1,4 +1,4 @@
-package com.greenfox.erste.Utils;
+package com.greenfox.erste.utils;
 
 import com.greenfox.erste.Models.Card;
 import com.greenfox.erste.Models.ContactInfo;
@@ -6,7 +6,6 @@ import com.greenfox.erste.repository.ICardRepository;
 import com.greenfox.erste.repository.IContactInfoRepository;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -25,6 +24,8 @@ public class DataSeeder implements ApplicationRunner {
   @Override
   public void run(ApplicationArguments args) throws Exception {
     for (int i = 0; i < 10; i++) {
+//      ContactInfo anotherContact = new ContactInfo("sms", "18" + i);
+//      infoRepo.save(anotherContact);
       Card newCard = new Card("Visa",
           "100010001000100" + i,
           "12/20",
@@ -45,20 +46,11 @@ public class DataSeeder implements ApplicationRunner {
       cardList.add(newCard);
       cardList.add(anotherCard);
       ContactInfo newContact = new ContactInfo("sms", "19" + i, cardList);
-      ContactInfo anotherContact = new ContactInfo("sms", "18" + i, cardList);
       infoRepo.save(newContact);
       newCard.setContact(newContact);
+      anotherCard.setContact(newContact);
       cardRepo.save(newCard);
-      newContact.setCards(cardList);
-      infoRepo.save(newContact);
-
-      infoRepo.save(anotherContact);
-      anotherCard.setContact(anotherContact);
       cardRepo.save(anotherCard);
-      anotherContact.setCards(cardList);
-      infoRepo.save(anotherContact);
-
-
     }
   }
 }
