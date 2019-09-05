@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+@EnableSwagger2
 @RestController
-@RequestMapping("/")
+@RequestMapping("/ecards")
 public class CardController {
 
   private ICardService cardService;
@@ -58,7 +60,6 @@ public class CardController {
     Card cardToAdd = cardService.convertFromDto(newCardInDTO);
     cardService.save(cardToAdd);
     return new ResponseEntity(HttpStatus.OK);
-
   }
 }
 
