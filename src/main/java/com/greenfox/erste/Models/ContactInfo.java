@@ -12,12 +12,9 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 @Entity
-//@IdClass(ContactInfoId.class)
 public class ContactInfo {
 
   @NotNull
-//  @Id
-//  @Column(nullable = false, unique = true, columnDefinition = "VARCHAR(64)")
   private String type;
   @NotNull
   @Id
