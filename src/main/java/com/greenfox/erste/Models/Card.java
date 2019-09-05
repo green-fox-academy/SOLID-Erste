@@ -27,7 +27,6 @@ public class Card {
     this.disabled = disabled;
     this.owner = owner;
     this.contact = contact;
-
   }
 
   public Card(){}
