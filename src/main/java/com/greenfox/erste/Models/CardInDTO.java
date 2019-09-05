@@ -61,7 +61,7 @@ public class CardInDTO {
   public String getCVV() {
     return cvv;
   }
-
+  
   public void setCVV(String cvv) {
     this.cvv = cvv;
   }
