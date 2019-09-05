@@ -43,10 +43,6 @@ public class CardController {
 
   @RequestMapping(method = RequestMethod.PUT, value = "/{cardNumber}")
   public ResponseEntity invalidateCard(@PathVariable String cardNumber) {
-    Card newCard = cardService.findById(cardNumber);
-//    if (newCard == null) {
-//      return new ResponseEntity(HttpStatus.NOT_FOUND);
-//    }
     cardService.invalidateCard(cardNumber);
     return new ResponseEntity(HttpStatus.OK);
   }
