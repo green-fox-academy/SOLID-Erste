@@ -16,10 +16,5 @@ public class CardController {
     this.cardService = cardService;
     this.contactInfoService = contactInfoService;
   }
-
-  CardController() {
-
-  }
-
 }
 

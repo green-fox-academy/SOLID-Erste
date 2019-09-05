@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-
 @Entity
 public class Card {
 
@@ -31,7 +30,6 @@ public class Card {
     this.contact = contact;
   }
   public Card(){}
-
 
   public ContactInfo getContact() {
     return contact;

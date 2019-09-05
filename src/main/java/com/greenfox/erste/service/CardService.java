@@ -13,7 +13,6 @@ public class CardService implements ICardService {
 
   public CardService(ICardRepository cardRepository) {
     this.cardRepository = cardRepository;
-
   }
 
   @Override
