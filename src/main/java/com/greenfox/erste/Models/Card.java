@@ -19,7 +19,7 @@ public class Card {
   private boolean disabled = false;
   private String owner;
   @ManyToOne
-  @JsonManagedReference
+//  @JsonManagedReference
   private ContactInfo contact;
 
   public Card(String cardType, String cardNumber, String validThru, String cardHash,

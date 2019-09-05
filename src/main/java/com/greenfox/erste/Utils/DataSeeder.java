@@ -24,8 +24,7 @@ public class DataSeeder implements ApplicationRunner {
   @Override
   public void run(ApplicationArguments args) throws Exception {
     for (int i = 0; i < 10; i++) {
-//      ContactInfo anotherContact = new ContactInfo("sms", "18" + i);
-//      infoRepo.save(anotherContact);
+
       Card newCard = new Card("Visa",
           "100010001000100" + i,
           "12/20",
