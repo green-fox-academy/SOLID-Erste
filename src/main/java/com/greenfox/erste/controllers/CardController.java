@@ -64,7 +64,7 @@ public class CardController {
 
   }
 
-  @PostMapping("/ecards/validate")
+  @PostMapping("/validate")
   public ResponseEntity<String> validateCard(@Valid @RequestBody CardValidatorInDTO validator) {
     if (cardService.validateCard(validator)) {
       return ResponseEntity.ok("VALID");
