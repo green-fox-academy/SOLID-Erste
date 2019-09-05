@@ -1,7 +1,11 @@
 package com.greenfox.erste.controllers;
 
+import com.greenfox.erste.Models.Card;
 import com.greenfox.erste.Models.CardInDTO;
+import com.greenfox.erste.Models.ContactInfo;
 import com.greenfox.erste.service.ICardService;
+import com.greenfox.erste.service.IContactInfoService;
+import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,25 +19,28 @@ import org.springframework.web.bind.annotation.RestController;
 public class CardController {
 
   private ICardService cardService;
+  private IContactInfoService contactInfoService;
 
-  CardController(ICardService cardService) {
+  CardController(ICardService cardService, IContactInfoService contactInfoService) {
     this.cardService = cardService;
+    this.contactInfoService = contactInfoService;
   }
-    CardController() {
+
+  CardController() {
 
   }
 
   @PostMapping("ecards")
   @ResponseBody
-  public ResponseEntity addCard(@RequestBody CardInDTO newCard) {
-
-    if (1 == 1) {
-      return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
-    } else {
-      return new ResponseEntity(HttpStatus.OK);
+  public ResponseEntity addNewCard(@Valid @RequestBody CardInDTO newCardInDTO) {
+    ContactInfo tempContactInfo = newCardInDTO.getContact();
+    if (!contactInfoService.findAll().contains(tempContactInfo)) {
+      contactInfoService.save(tempContactInfo);
     }
+    Card cardToAdd = cardService.convertFromDto(newCardInDTO);
+    cardService.save(cardToAdd);
+    return new ResponseEntity(HttpStatus.OK);
 
   }
-
 }
 

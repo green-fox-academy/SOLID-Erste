@@ -33,4 +33,5 @@ public class ContactInfoService implements IContactInfoService {
   public void delete(long id) {
     contactInfoRepository.deleteById(id);
   }
+
 }
