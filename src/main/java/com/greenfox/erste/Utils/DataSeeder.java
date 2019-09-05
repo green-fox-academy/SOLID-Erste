@@ -52,8 +52,6 @@ public class DataSeeder implements ApplicationRunner {
       cardRepo.save(anotherCard);
       anotherContact.setCard(anotherCard);
       infoRepo.save(anotherContact);
-
-
     }
   }
 }
