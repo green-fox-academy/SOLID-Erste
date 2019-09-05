@@ -5,6 +5,7 @@ pipeline {
   environment {
     registry = "greisz/erste"
     registryCredential = 'greisz-dockerhub'
+    dockerImage = ''
   }
 
   stages {
@@ -23,8 +24,8 @@ pipeline {
           dockerImage = docker.build registry + ":dev-latest"
         }
         script {
-          docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
+          docker.withRegistry('', registryCredential ) {
+            dockerImage.push('latest')
           }
         }
       }
