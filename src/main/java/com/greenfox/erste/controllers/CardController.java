@@ -4,10 +4,7 @@ import com.greenfox.erste.Models.Card;
 import com.greenfox.erste.service.ICardService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.web.client.HttpClientErrorException.*;
 
@@ -21,14 +18,26 @@ public class CardController {
     this.cardService = cardService;
   }
 
-  @RequestMapping("/ecards/{cardNumber}")
-  public ResponseEntity getCard(@PathVariable String cardNumber) throws Exception {
+  @RequestMapping(method = RequestMethod.GET, value = "/ecards/{cardNumber}")
+  public ResponseEntity getCard(@PathVariable String cardNumber) {
     Card newCard = cardService.findById(cardNumber);
     if (newCard == null){
-     return new ResponseEntity(HttpStatus.NOT_FOUND);
+      return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
     return ResponseEntity.ok(newCard);
   }
+
+  @RequestMapping(method = RequestMethod.PUT, value = "/ecards/{cardNumber}")
+  public ResponseEntity invalidateCard(@PathVariable String cardNumber){
+    Card newCard = cardService.findById(cardNumber);
+    if (newCard == null){
+      return new ResponseEntity(HttpStatus.NOT_FOUND);
+    }
+    cardService.invalidateCard(cardNumber);
+    return new ResponseEntity(HttpStatus.OK);
+  }
+
+
 }
 
 

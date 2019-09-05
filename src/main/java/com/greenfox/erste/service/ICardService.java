@@ -12,4 +12,6 @@ public interface ICardService {
   void save(Card card);
 
   void delete(String id);
+
+  void invalidateCard(String id);
 }

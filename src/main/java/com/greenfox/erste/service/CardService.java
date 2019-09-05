@@ -35,4 +35,11 @@ public class CardService implements ICardService {
   public void delete(String id) {
     cardRepository.deleteById(id);
   }
+
+  @Override
+  public void invalidateCard(String id) {
+    Card card = cardRepository.findById(id).orElse(null);
+    card.setDisabled(true);
+    cardRepository.save(card);
+  }
 }
