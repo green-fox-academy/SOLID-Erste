@@ -17,11 +17,12 @@ public class Card {
   private String cardHash;
   private boolean disabled = false;
   private String owner;
-  @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+  @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
   @JsonManagedReference
   private ContactInfo contact;
 
-  public Card(String cardType, String cardNumber, String validThru, String cardHash, boolean disabled, String owner, ContactInfo contact) {
+  public Card(String cardType, String cardNumber, String validThru
+      , String cardHash, boolean disabled, String owner, ContactInfo contact) {
     this.cardType = cardType;
     this.cardNumber = cardNumber;
     this.validThru = validThru;

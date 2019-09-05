@@ -5,42 +5,40 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class ContactInfo {
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private long id;
+
+//  @GeneratedValue(strategy = GenerationType.AUTO)
+//  private long id;
   @NotNull
   private String type;
   @NotNull
+  @Id
+  @Column(name = "contact", nullable = false,unique=true,columnDefinition="VARCHAR(64)")
   private String contact;
-  @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+  @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   @JsonBackReference
-  private Card card;
+  private List<Card> card = new ArrayList<>();
 
-  public Card getCard() {
+  public List<Card> getCard() {
     return card;
   }
 
-  public void setCard(Card card) {
+  public void setCard(List<Card> card) {
     this.card = card;
   }
 
-  public ContactInfo(@NotNull String type, @NotNull String contact) {
+  public ContactInfo(@NotNull String type, @NotNull String contact, List<Card> card) {
     this.type = type;
     this.contact = contact;
+    this.card = card;
   }
 
   public ContactInfo(){};
 
-  public long getId() {
-    return id;
-  }
-
-  public void setId(long id) {
-    this.id = id;
-  }
 
   public String getType() {
     return type;

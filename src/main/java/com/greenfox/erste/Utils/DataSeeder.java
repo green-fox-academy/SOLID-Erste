@@ -9,6 +9,9 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class DataSeeder implements ApplicationRunner {
 
@@ -23,8 +26,8 @@ public class DataSeeder implements ApplicationRunner {
   @Override
   public void run(ApplicationArguments args) throws Exception {
     for (int i = 0; i < 10; i++) {
-      ContactInfo newContact = new ContactInfo("sms", "19" + i);
-      ContactInfo anotherContact = new ContactInfo("sms", "18" + i);
+//      ContactInfo anotherContact = new ContactInfo("sms", "18" + i);
+//      infoRepo.save(anotherContact);
       Card newCard = new Card("Visa",
           "100010001000100" +i,
           "12/20",
@@ -41,19 +44,16 @@ public class DataSeeder implements ApplicationRunner {
           "Mat Smith",
           null
       );
+      List<Card> cardList = new ArrayList<>();
+      cardList.add(newCard);
+      cardList.add(anotherCard);
+
+      ContactInfo newContact = new ContactInfo("sms", "19" + i, cardList);
       infoRepo.save(newContact);
       newCard.setContact(newContact);
+      anotherCard.setContact(newContact);
       cardRepo.save(newCard);
-      newContact.setCard(newCard);
-      infoRepo.save(newContact);
-
-      infoRepo.save(anotherContact);
-      anotherCard.setContact(anotherContact);
       cardRepo.save(anotherCard);
-      anotherContact.setCard(anotherCard);
-      infoRepo.save(anotherContact);
-
-
     }
   }
 }
