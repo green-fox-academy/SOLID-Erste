@@ -20,6 +20,17 @@ public class CardInDTO {
   @NotNull
   private ContactInfo contact;
 
+  public CardInDTO(@NotNull String cardType, @NotNull String cardNumber, @NotNull String validThru, @NotNull String CVV, @NotNull String owner, @NotNull ContactInfo contact) {
+    this.cardType = cardType;
+    this.cardNumber = cardNumber;
+    this.validThru = validThru;
+    this.CVV = CVV;
+    this.owner = owner;
+    this.contact = contact;
+  }
+
+  public CardInDTO(){};
+
   public ContactInfo getContact() {
     return contact;
   }

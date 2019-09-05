@@ -9,9 +9,21 @@ public class Card {
   private String cardNumber;
   private String validThru;
   private String cardHash;
-  private boolean disabled;
+  private boolean disabled = false;
   private String owner;
   private ContactInfo contact;
+
+  public Card(String cardType, String cardNumber, String validThru, String cardHash, boolean disabled, String owner, ContactInfo contact) {
+    this.cardType = cardType;
+    this.cardNumber = cardNumber;
+    this.validThru = validThru;
+    this.cardHash = cardHash;
+    this.disabled = disabled;
+    this.owner = owner;
+    this.contact = contact;
+  }
+
+  public Card(){};
 
   public ContactInfo getContact() {
     return contact;
