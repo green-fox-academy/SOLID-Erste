@@ -19,9 +19,6 @@ public class CardController {
   CardController(ICardService cardService) {
     this.cardService = cardService;
   }
-    CardController() {
-
-  }
 
   @PostMapping("/ecards/validate")
   public ResponseEntity<String> validateCard(@Valid @RequestBody CardValidatorInDTO validator) {

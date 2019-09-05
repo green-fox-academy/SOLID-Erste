@@ -23,30 +23,25 @@ public class CardService implements ICardService {
   }
 
   @Override
-  public Card findById(String id) {
-    return cardRepository.findById(id).orElse(null);
-  }
-
-  @Override
   public void save(Card card) {
     cardRepository.save(card);
   }
 
   @Override
-  public void delete(String id) {
-    cardRepository.deleteById(id);
+  public Card findById(String id) {
+    return cardRepository.findById(id).orElse(null);
   }
 
   @Override
   public boolean existsCardByNumber(String cardNumber) {
-    return cardRepository.findCardByCardNumber(cardNumber) != null;
+    return cardRepository.findById(cardNumber) != null;
   }
 
   @Override
   public boolean validateCard(CardValidatorInDTO validator) {
-    Card cardToValidate = cardRepository.findCardByCardNumber(validator.getCardNumber());
+    Card cardToValidate = findById(validator.getCardNumber());
     return typeNumberValidChecker(validator, cardToValidate) &&
-            cardToValidate.isDisabled() &&
+            !cardToValidate.isDisabled() &&
             hashesEqual(validator, cardToValidate);
   }
 

@@ -10,7 +10,7 @@ public class CardValidatorInDTO {
   private String cardType;
   @NotNull
   @CreditCardNumber(ignoreNonDigitCharacters = true)
-  @Size(min = 16, max = 19)
+  @Size(min = 16, max = 16)
   private String cardNumber;
   @NotNull
   @Size(min = 5, max = 5)
@@ -22,7 +22,7 @@ public class CardValidatorInDTO {
   public CardValidatorInDTO() {
   }
 
-  public CardValidatorInDTO(String cardType, String cardNumber, String validThru, String cvv) {
+  public CardValidatorInDTO(@NotNull String cardType, @NotNull @CreditCardNumber(ignoreNonDigitCharacters = true) @Size(min = 16, max = 19) String cardNumber, @NotNull @Size(min = 5, max = 5) String validThru, @NotNull @Size(min = 3, max = 3) String cvv) {
     this.cardType = cardType;
     this.cardNumber = cardNumber;
     this.validThru = validThru;

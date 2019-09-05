@@ -26,20 +26,20 @@ public class DataSeeder implements ApplicationRunner {
       ContactInfo newContact = new ContactInfo("sms", "19" + i);
       ContactInfo anotherContact = new ContactInfo("sms", "18" + i);
       Card newCard = new Card("Visa",
-          "100010001000100" +i,
+          "540720070266639" +i,
           "12/20",
-          "thisisatesthash",
           false,
           "Stan Smith",
-          null
+          null,
+              "123"
       );
       Card anotherCard = new Card("Visa",
           "200010001000100" +i,
           "12/20",
-          "thisisatesthash",
           false,
           "Mat Smith",
-          null
+          null,
+              "123"
       );
       infoRepo.save(newContact);
       newCard.setContact(newContact);

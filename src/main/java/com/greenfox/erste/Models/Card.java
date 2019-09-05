@@ -1,11 +1,12 @@
 package com.greenfox.erste.Models;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Card {
-
   private String cardType;
   @Id
   @Column(name = "card_number", nullable = false,unique=true,columnDefinition="VARCHAR(64)")
@@ -17,17 +18,26 @@ public class Card {
   @OneToOne
   private ContactInfo contact;
 
-  public Card(String cardType, String cardNumber, String validThru, String cardHash, boolean disabled, String owner, ContactInfo contact) {
+  public Card(String cardType, String cardNumber, String validThru, boolean disabled, String owner, ContactInfo contact, String CVV) {
     this.cardType = cardType;
     this.cardNumber = cardNumber;
     this.validThru = validThru;
-    this.cardHash = cardHash;
+    this.cardHash = createHash(cardNumber, validThru, CVV);
     this.disabled = disabled;
     this.owner = owner;
     this.contact = contact;
   }
 
-  public Card(){};
+  public Card(){}
+
+  public String createHash(String cardNumber, String validThru, String CVV) {
+    String cardNumberHash = DigestUtils.sha256Hex(cardNumber);
+    String validThruHash = DigestUtils.sha256Hex(validThru);
+    String CVVHash = DigestUtils.sha256Hex(CVV);
+    String allHashes = cardNumberHash.concat(validThruHash).concat(CVVHash);
+    String hashOutput = DigestUtils.sha256Hex(allHashes);
+    return hashOutput;
+  }
 
   public ContactInfo getContact() {
     return contact;
