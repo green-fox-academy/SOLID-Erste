@@ -18,7 +18,6 @@ public class Card {
   private boolean disabled = false;
   private String owner;
   @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-  @JsonManagedReference
   private ContactInfo contact;
 
   public Card(String cardType, String cardNumber, String validThru
