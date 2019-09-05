@@ -2,9 +2,12 @@ package com.greenfox.erste.service;
 
 import com.greenfox.erste.Models.ContactInfo;
 import com.greenfox.erste.repository.IContactInfoRepository;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class ContactInfoService implements IContactInfoService {
   private IContactInfoRepository contactInfoRepository;
 
@@ -33,4 +36,5 @@ public class ContactInfoService implements IContactInfoService {
   public void delete(long id) {
     contactInfoRepository.deleteById(id);
   }
+
 }
