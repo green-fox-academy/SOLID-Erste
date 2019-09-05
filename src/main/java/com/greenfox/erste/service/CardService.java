@@ -1,6 +1,7 @@
 package com.greenfox.erste.service;
 
 import com.greenfox.erste.Models.Card;
+import com.greenfox.erste.Models.CardValidatorInDTO;
 import com.greenfox.erste.repository.ICardRepository;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -36,5 +37,29 @@ public class CardService implements ICardService {
     cardRepository.deleteById(id);
   }
 
+  @Override
+  public boolean existsCardByNumber(String cardNumber) {
+    return cardRepository.findCardByCardNumber(cardNumber) != null;
+  }
 
+  @Override
+  public boolean validateCard(CardValidatorInDTO validator) {
+    Card cardToValidate = cardRepository.findCardByCardNumber(validator.getCardNumber());
+    return typeNumberValidChecker(validator, cardToValidate) &&
+            cardToValidate.isDisabled() &&
+            hashesEqual(validator, cardToValidate);
+  }
+
+  @Override
+  public boolean typeNumberValidChecker(CardValidatorInDTO validator, Card card) {
+    return validator.getCardType().equals(card.getCardType()) &&
+            validator.getCardNumber().equals(card.getCardNumber()) &&
+            validator.getValidThru().equals(card.getValidThru());
+  }
+
+  @Override
+  public boolean hashesEqual(CardValidatorInDTO validator, Card card) {
+    String validatorHash = card.createHash(validator.getCardNumber(), validator.getValidThru(), validator.getCvv());
+    return validatorHash.equals(card.getCardHash());
+  }
 }

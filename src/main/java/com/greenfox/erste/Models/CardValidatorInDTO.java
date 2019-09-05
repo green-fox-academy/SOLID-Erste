@@ -10,22 +10,23 @@ public class CardValidatorInDTO {
   private String cardType;
   @NotNull
   @CreditCardNumber(ignoreNonDigitCharacters = true)
-  @Size(min = 19, max = 19)
+  @Size(min = 16, max = 19)
   private String cardNumber;
   @NotNull
   @Size(min = 5, max = 5)
   private String validThru;
   @NotNull
-  private String CVV;
+  @Size(min = 3, max = 3)
+  private String cvv;
 
   public CardValidatorInDTO() {
   }
 
-  public CardValidatorInDTO(String cardType, String cardNumber, String validThru, String CVV) {
+  public CardValidatorInDTO(String cardType, String cardNumber, String validThru, String cvv) {
     this.cardType = cardType;
     this.cardNumber = cardNumber;
     this.validThru = validThru;
-    this.CVV = CVV;
+    this.cvv = cvv;
   }
 
   public String getCardType() {
@@ -52,11 +53,11 @@ public class CardValidatorInDTO {
     this.validThru = validThru;
   }
 
-  public String getCVV() {
-    return CVV;
+  public String getCvv() {
+    return cvv;
   }
 
-  public void setCVV(String CVV) {
-    this.CVV = CVV;
+  public void setCvv(String cvv) {
+    this.cvv = cvv;
   }
 }
