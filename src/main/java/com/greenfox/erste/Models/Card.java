@@ -95,5 +95,4 @@ public class Card {
   public void setOwner(String owner) {
     this.owner = owner;
   }
-
 }
