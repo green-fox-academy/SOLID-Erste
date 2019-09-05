@@ -1,6 +1,7 @@
 package com.greenfox.erste.controllers;
 
 import com.greenfox.erste.service.ICardService;
+import com.greenfox.erste.service.IContactInfoService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,13 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class CardController {
 
   private ICardService cardService;
+  private IContactInfoService contactInfoService;
 
-  CardController(ICardService cardService) {
+  CardController(ICardService cardService, IContactInfoService contactInfoService) {
     this.cardService = cardService;
+    this.contactInfoService = contactInfoService;
   }
-    CardController() {
-
-  }
-
 }
 

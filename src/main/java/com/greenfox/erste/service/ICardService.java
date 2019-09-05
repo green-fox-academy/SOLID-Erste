@@ -5,6 +5,7 @@ import com.greenfox.erste.Models.Card;
 import java.util.List;
 
 public interface ICardService {
+
   List<Card> findAll();
 
   Card findById(String id);
@@ -12,4 +13,5 @@ public interface ICardService {
   void save(Card card);
 
   void delete(String id);
+
 }

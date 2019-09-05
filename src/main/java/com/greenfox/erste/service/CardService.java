@@ -2,12 +2,13 @@ package com.greenfox.erste.service;
 
 import com.greenfox.erste.Models.Card;
 import com.greenfox.erste.repository.ICardRepository;
-import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 @Service
 public class CardService implements ICardService {
+
   private ICardRepository cardRepository;
 
   public CardService(ICardRepository cardRepository) {
@@ -35,4 +36,5 @@ public class CardService implements ICardService {
   public void delete(String id) {
     cardRepository.deleteById(id);
   }
+
 }
