@@ -7,9 +7,9 @@ import java.util.List;
 public interface ICardService {
   List<Card> findAll();
 
-  Card findById(long id);
+  Card findById(String id);
 
   void save(Card card);
 
-  void delete(long id);
+  void delete(String id);
 }

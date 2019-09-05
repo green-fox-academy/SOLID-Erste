@@ -22,7 +22,7 @@ public class CardService implements ICardService {
   }
 
   @Override
-  public Card findById(long id) {
+  public Card findById(String id) {
     return cardRepository.findById(id).orElse(null);
   }
 
@@ -32,7 +32,7 @@ public class CardService implements ICardService {
   }
 
   @Override
-  public void delete(long id) {
+  public void delete(String id) {
     cardRepository.deleteById(id);
   }
 }
