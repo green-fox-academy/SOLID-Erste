@@ -22,7 +22,7 @@ public class DataSeeder implements ApplicationRunner {
   }
 
   @Override
-  public void run(ApplicationArguments args) throws Exception {
+  public void run(ApplicationArguments args) {
     for (int i = 0; i < 10; i++) {
       Card newCard = new Card("Visa",
           "100010001000100" + i,

@@ -30,7 +30,7 @@ public class CardController {
     this.contactInfoService = contactInfoService;
   }
 
-  @RequestMapping(method = RequestMethod.GET, value = "/ecards/{cardNumber}")
+  @RequestMapping(method = RequestMethod.GET, value = "/{cardNumber}")
   public ResponseEntity getCard(@PathVariable String cardNumber) {
     Card newCard = cardService.findById(cardNumber);
     if (newCard == null){
@@ -40,7 +40,7 @@ public class CardController {
     return ResponseEntity.ok(cardToReturn);
   }
 
-  @RequestMapping(method = RequestMethod.PUT, value = "/ecards/{cardNumber}")
+  @RequestMapping(method = RequestMethod.PUT, value = "/{cardNumber}")
   public ResponseEntity invalidateCard(@PathVariable String cardNumber){
     Card newCard = cardService.findById(cardNumber);
     if (newCard == null){

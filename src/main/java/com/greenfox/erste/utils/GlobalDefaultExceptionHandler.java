@@ -1,4 +1,4 @@
-package com.greenfox.erste.utils;
+package com.greenfox.erste.Utils;
 
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.core.annotation.AnnotationUtils;
