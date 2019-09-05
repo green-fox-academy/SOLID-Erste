@@ -1,4 +1,5 @@
 package com.greenfox.erste.controllers;
+
 import com.greenfox.erste.Models.CardValidatorInDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,14 +26,11 @@ public class CardController {
 
   @PostMapping("/ecards/validate")
   public ResponseEntity<String> validateCard(@Valid @RequestBody CardValidatorInDTO validator) {
-    if (cardService.existsCardByNumber(validator.getCardNumber())) {
-      if(cardService.validateCard(validator)) {
-        return ResponseEntity.ok("VALID");
-      } else {
-        return ResponseEntity.ok("INVALID");
-      }
+    if (cardService.validateCard(validator)) {
+      return ResponseEntity.ok("VALID");
+    } else {
+      return ResponseEntity.ok("INVALID");
     }
-     return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
   }
 }
 
