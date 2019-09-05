@@ -4,7 +4,7 @@ pipeline {
 
   environment {
     registry = "greisz/erste"
-    registryCredential = 'greisz-dockerhub'
+    registryCredential = 'cb0e70eb-6db0-450b-99b5-aece738902b7'
     dockerImage = ''
   }
 
