@@ -5,10 +5,10 @@ import java.util.List;
 
 @Entity
 public class Card {
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private long id;
+
   private String cardType;
+  @Id
+  @Column(name = "card_number", nullable = false,unique=true,columnDefinition="VARCHAR(64)")
   private String cardNumber;
   private String validThru;
   private String cardHash;
@@ -85,11 +85,4 @@ public class Card {
     this.owner = owner;
   }
 
-  public long getId() {
-    return id;
-  }
-
-  public void setId(long id) {
-    this.id = id;
-  }
 }
