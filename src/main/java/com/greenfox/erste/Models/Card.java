@@ -1,16 +1,16 @@
 package com.greenfox.erste.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Card {
+
   private String cardType;
+  @Id
+  @Column(name = "card_number", nullable = false,unique=true,columnDefinition="VARCHAR(64)")
   private String cardNumber;
   private String validThru;
-  @Id
   private String cardHash;
   private boolean disabled = false;
   private String owner;

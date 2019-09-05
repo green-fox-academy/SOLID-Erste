@@ -10,13 +10,13 @@ public class CardInDTO {
   private String cardType;
   @NotNull
   @CreditCardNumber(ignoreNonDigitCharacters = true)
-  @Size(min = 19, max = 19)
+  @Size(min = 16, max = 19)
   private String cardNumber;
   @NotNull
   @Size(min = 5, max = 5)
   private String validThru;
   @NotNull
-  private String CVV;
+  private String cvv;
   @NotNull
   private String owner;
   @NotNull
@@ -57,11 +57,11 @@ public class CardInDTO {
   }
 
   public String getCVV() {
-    return CVV;
+    return cvv;
   }
 
   public void setCVV(String CVV) {
-    this.CVV = CVV;
+    this.cvv = CVV;
   }
 
   public String getOwner() {
