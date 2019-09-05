@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-class GlobalDefaultExceptionHandler {
+class GlobalExceptionHandler {
 
   @ExceptionHandler(value = NullPointerException.class)
-  public void NotFoundErrorHandler(HttpServletResponse response, Exception e) throws Exception {
+  public void notFoundErrorHandler(HttpServletResponse response, Exception e) throws Exception {
     response.sendError(HttpStatus.NOT_FOUND.value());
     if (AnnotationUtils.findAnnotation
         (e.getClass(), ResponseStatus.class) != null) {
