@@ -34,7 +34,7 @@ public class CardController {
   @RequestMapping(method = RequestMethod.GET, value = "/{cardNumber}")
   public ResponseEntity getCard(@PathVariable String cardNumber) {
     Card newCard = cardService.findById(cardNumber);
-    if (newCard == null){
+    if (newCard == null) {
       return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
     CardOutDTO cardToReturn = cardService.convertToDto(newCard);
@@ -42,9 +42,9 @@ public class CardController {
   }
 
   @RequestMapping(method = RequestMethod.PUT, value = "/{cardNumber}")
-  public ResponseEntity invalidateCard(@PathVariable String cardNumber){
+  public ResponseEntity invalidateCard(@PathVariable String cardNumber) {
     Card newCard = cardService.findById(cardNumber);
-    if (newCard == null){
+    if (newCard == null) {
       return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
     cardService.invalidateCard(cardNumber);
