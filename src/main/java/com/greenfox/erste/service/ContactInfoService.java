@@ -9,6 +9,7 @@ import java.util.List;
 
 @Service
 public class ContactInfoService implements IContactInfoService {
+
   private IContactInfoRepository contactInfoRepository;
 
   public ContactInfoService(IContactInfoRepository contactInfoRepository) {
