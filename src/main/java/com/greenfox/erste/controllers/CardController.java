@@ -26,9 +26,6 @@ public class CardController {
     this.contactInfoService = contactInfoService;
   }
 
-  CardController() {
-
-  }
 
   @PostMapping("ecards")
   @ResponseBody
