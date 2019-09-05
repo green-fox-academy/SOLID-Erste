@@ -1,5 +1,7 @@
 package com.greenfox.erste.service;
 
+import com.greenfox.erste.Models.ContactInfo;
+
 import java.util.List;
 
 public interface IContactInfoService {

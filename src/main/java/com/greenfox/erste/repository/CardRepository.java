@@ -1,4 +1,7 @@
 package com.greenfox.erste.repository;
 
-public class CardRepository extends CrudRepository<Card, Long> implements ICardRepository{
+import com.greenfox.erste.Models.Card;
+import org.springframework.data.repository.CrudRepository;
+
+public abstract class CardRepository implements ICardRepository {
 }

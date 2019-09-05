@@ -1,4 +1,7 @@
 package com.greenfox.erste.repository;
 
-public class ContactInfoRepository extends CrudRepository<ContactInfo, Long> implements IContactInfoRepository {
+import com.greenfox.erste.Models.ContactInfo;
+import org.springframework.data.repository.CrudRepository;
+
+public abstract class ContactInfoRepository implements IContactInfoRepository {
 }

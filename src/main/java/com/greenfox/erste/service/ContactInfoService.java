@@ -1,16 +1,17 @@
 package com.greenfox.erste.service;
 
 import ch.qos.logback.classic.pattern.ClassNameOnlyAbbreviator;
+import com.greenfox.erste.Models.ContactInfo;
 import com.greenfox.erste.repository.ICardRepository;
 import com.greenfox.erste.repository.IContactInfoRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContactInfoServiceImp implements IContactInfoService {
+public class ContactInfoService implements IContactInfoService {
   private IContactInfoRepository contactInfoRepository;
 
-  public ContactInfoServiceImp(IContactInfoRepository contactInfoRepository) {
+  public ContactInfoService(IContactInfoRepository contactInfoRepository) {
     this.contactInfoRepository = contactInfoRepository;
   }
 
@@ -23,8 +24,7 @@ public class ContactInfoServiceImp implements IContactInfoService {
 
   @Override
   public ContactInfo findById(long id) {
-    ContactInfo contactInfo = contactInfoRepository.findById(id).orElse(null);
-    return contactInfo;
+    return contactInfoRepository.findById(id).orElse(null);
   }
 
   @Override

@@ -1,5 +1,6 @@
 package com.greenfox.erste.controllers;
 
+import com.greenfox.erste.service.ICardService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
