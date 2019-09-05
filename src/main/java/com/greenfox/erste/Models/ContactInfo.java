@@ -9,8 +9,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @IdClass(ContactInfoId.class)
 public class ContactInfo {
-//  @Id
-//  private long id;
+
   @NotNull
   @Id
   private String type;
@@ -27,15 +26,16 @@ public class ContactInfo {
     this.card = card;
   }
 
-  public ContactInfo(){}
+  public ContactInfo() {
+  }
 
-//  public long getId() {
-//    return id;
-//  }
-//
-//  public void setId(long id) {
-//    this.id = id;
-//  }
+  public Card getCard() {
+    return card;
+  }
+
+  public void setCard(Card card) {
+    this.card = card;
+  }
 
   public String getType() {
     return type;

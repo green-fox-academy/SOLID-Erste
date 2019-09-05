@@ -10,13 +10,14 @@ public interface ICardService {
 
   List<Card> findAll();
 
-  Card findById(long id);
+  Card findById(String id);
 
   void save(Card card);
-
-  void delete(long id);
 
   Card convertFromDto(CardInDTO cardInDTO);
 
   CardOutDTO convertToDto(Card card);
+
+  void delete(String id);
+
 }

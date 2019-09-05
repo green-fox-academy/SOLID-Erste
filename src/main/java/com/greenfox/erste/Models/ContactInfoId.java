@@ -13,5 +13,4 @@ public class ContactInfoId implements Serializable {
     this.contact = contact;
   }
 
-
 }

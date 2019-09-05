@@ -4,9 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class CardInDTO {
+
   @NotNull
   private String cardType;
   @NotNull
@@ -15,8 +17,10 @@ public class CardInDTO {
   private String cardNumber;
   @NotNull
   @Size(min = 5, max = 5)
+  @Pattern(regexp = "(?:0[1-9]|1[0-2])/[0-9]{2}")
   private String validThru;
   @NotNull
+  @Size(min = 3, max = 3)
   private String cvv;
   @NotNull
   private String owner;
@@ -24,7 +28,8 @@ public class CardInDTO {
   @JsonProperty("contact-info")
   private ContactInfo contactInfo;
 
-  public CardInDTO(){}
+  public CardInDTO() {
+  }
 
   public ContactInfo getContact() {
     return contactInfo;
@@ -63,6 +68,7 @@ public class CardInDTO {
   }
 
   public void setCvv(String cvv) {
+
     this.cvv = cvv;
   }
 
