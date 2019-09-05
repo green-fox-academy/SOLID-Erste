@@ -3,6 +3,7 @@ package com.greenfox.erste.Models;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class CardInDTO {
@@ -10,13 +11,15 @@ public class CardInDTO {
   private String cardType;
   @NotNull
   @CreditCardNumber(ignoreNonDigitCharacters = true)
-  @Size(min = 16, max = 16)
+  @Size(min = 16, max = 19)
   private String cardNumber;
   @NotNull
   @Size(min = 5, max = 5)
+  @Pattern(regexp = "(?:0[1-9]|1[0-2])/[0-9]{2}")
   private String validThru;
   @NotNull
-  private String CVV;
+  @Size(min = 3, max = 3)
+  private String cvv;
   @NotNull
   private String owner;
   @NotNull
@@ -57,11 +60,11 @@ public class CardInDTO {
   }
 
   public String getCVV() {
-    return CVV;
+    return cvv;
   }
-
-  public void setCVV(String CVV) {
-    this.CVV = CVV;
+  
+  public void setCVV(String cvv) {
+    this.cvv = cvv;
   }
 
   public String getOwner() {
