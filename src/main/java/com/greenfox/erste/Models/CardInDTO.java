@@ -18,6 +18,7 @@ public class CardInDTO {
   @Pattern(regexp = "(?:0[1-9]|1[0-2])/[0-9]{2}")
   private String validThru;
   @NotNull
+  @Size(min = 3, max = 3)
   private String cvv;
   @NotNull
   private String owner;
