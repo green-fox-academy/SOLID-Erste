@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@Entity
 public class CardOutDTO {
   private String cardType;
   private String cardNumber;

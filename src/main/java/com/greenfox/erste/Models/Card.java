@@ -1,6 +1,8 @@
 package com.greenfox.erste.Models;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.util.List;
 
 @Entity
@@ -8,9 +10,11 @@ public class Card {
   private String cardType;
   private String cardNumber;
   private String validThru;
+  @Id
   private String cardHash;
   private boolean disabled = false;
   private String owner;
+  @OneToOne
   private ContactInfo contact;
 
   public Card(String cardType, String cardNumber, String validThru, String cardHash, boolean disabled, String owner, ContactInfo contact) {
