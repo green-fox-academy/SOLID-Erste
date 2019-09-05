@@ -25,20 +25,20 @@ public class DataSeeder implements ApplicationRunner {
   public void run(ApplicationArguments args) {
     for (int i = 0; i < 10; i++) {
       Card newCard = new Card("Visa",
-          "100010001000100" + i,
-          "12/20",
-          "thisisatesthash",
-          false,
-          "Stan Smith",
-          null
+              "540720070266639" + i,
+              "12/20",
+              false,
+              "Stan Smith",
+              null,
+              "123"
       );
       Card anotherCard = new Card("Visa",
-          "200010001000100" + i,
-          "12/20",
-          "thisisatesthash",
-          false,
-          "Mat Smith",
-          null
+              "200010001000100" + i,
+              "12/20",
+              false,
+              "Mat Smith",
+              null,
+              "123"
       );
       List<Card> cardList = new ArrayList<>();
       cardList.add(newCard);

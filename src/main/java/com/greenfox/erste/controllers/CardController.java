@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.greenfox.erste.Models.CardInDTO;
+import com.greenfox.erste.Models.CardValidatorInDTO;
 import com.greenfox.erste.Models.ContactInfo;
 import com.greenfox.erste.service.IContactInfoService;
 import javax.validation.Valid;
@@ -50,7 +51,7 @@ public class CardController {
     return new ResponseEntity(HttpStatus.OK);
   }
 
-  @PostMapping("ecards")
+  @PostMapping("/")
   @ResponseBody
   public ResponseEntity addNewCard(@Valid @RequestBody CardInDTO newCardInDTO) {
     ContactInfo tempContactInfo = newCardInDTO.getContact();
@@ -60,6 +61,16 @@ public class CardController {
     Card cardToAdd = cardService.convertFromDto(newCardInDTO);
     cardService.save(cardToAdd);
     return new ResponseEntity(HttpStatus.OK);
+
+  }
+
+  @PostMapping("/ecards/validate")
+  public ResponseEntity<String> validateCard(@Valid @RequestBody CardValidatorInDTO validator) {
+    if (cardService.validateCard(validator)) {
+      return ResponseEntity.ok("VALID");
+    } else {
+      return ResponseEntity.ok("INVALID");
+    }
   }
 }
 

@@ -1,6 +1,7 @@
 package com.greenfox.erste.Models;
 
 public class CardOutDTO {
+
   private String cardType;
   private String cardNumber;
   private String validThru;
@@ -8,7 +9,8 @@ public class CardOutDTO {
   private String owner;
   private ContactInfo contact;
 
-  public CardOutDTO(String cardType, String cardNumber, String validThru, boolean disabled, String owner, ContactInfo contact) {
+  public CardOutDTO(String cardType, String cardNumber, String validThru, boolean disabled,
+      String owner, ContactInfo contact) {
     this.cardType = cardType;
     this.cardNumber = cardNumber;
     this.validThru = validThru;
@@ -17,7 +19,10 @@ public class CardOutDTO {
     this.contact = contact;
   }
 
-  public CardOutDTO(){};
+  public CardOutDTO() {
+  }
+
+  ;
 
   public ContactInfo getContact() {
     return contact;
