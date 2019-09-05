@@ -32,6 +32,9 @@ public class CardController {
   @ResponseBody
   public ResponseEntity addNewCard(@Valid @RequestBody CardInDTO newCardInDTO) {
     ContactInfo tempContactInfo = newCardInDTO.getContact();
+    if (cardService.existsCardByNumber(newCardInDTO.getCardNumber())) {
+      return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
     if (!contactInfoService.findAll().contains(tempContactInfo)) {
       contactInfoService.save(tempContactInfo);
     }

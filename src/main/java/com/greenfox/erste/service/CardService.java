@@ -40,7 +40,7 @@ public class CardService implements ICardService {
 
   @Override
   public boolean existsCardByNumber(String cardNumber) {
-    return cardRepository.findById(cardNumber) != null;
+    return cardRepository.findById(cardNumber).isPresent();
   }
 
   @Override
