@@ -6,6 +6,7 @@ import com.greenfox.erste.Models.CardValidatorInDTO;
 import java.util.List;
 
 public interface ICardService {
+
   List<Card> findAll();
 
   void save(Card card);
@@ -19,4 +20,6 @@ public interface ICardService {
   boolean typeNumberValidChecker(CardValidatorInDTO validator, Card card);
 
   boolean hashesEqual(CardValidatorInDTO validator, Card card);
+
+  void delete(String id);
 }
