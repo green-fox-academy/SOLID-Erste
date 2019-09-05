@@ -1,5 +1,8 @@
 package com.greenfox.erste.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -12,7 +15,8 @@ public class ContactInfo {
   private String type;
   @NotNull
   private String contact;
-  @OneToOne
+  @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+  @JsonBackReference
   private Card card;
 
   public Card getCard() {
