@@ -1,15 +1,9 @@
 package com.greenfox.erste.Models;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.greenfox.erste.Utils.ExpirationDateValidation;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
-import javax.persistence.Entity;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 public class CardInDTO {
   @NotNull
@@ -20,7 +14,6 @@ public class CardInDTO {
   private String cardNumber;
   @NotNull
   @Size(min = 5, max = 5)
-  @JsonDeserialize(using = ExpirationDateValidation.class)
   private String validThru;
   @NotNull
   private String CVV;
