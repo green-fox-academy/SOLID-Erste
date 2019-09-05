@@ -1,16 +1,16 @@
 package com.greenfox.erste.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Card {
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
   private String cardType;
   private String cardNumber;
   private String validThru;
-  @Id
   private String cardHash;
   private boolean disabled = false;
   private String owner;
@@ -85,4 +85,11 @@ public class Card {
     this.owner = owner;
   }
 
+  public long getId() {
+    return id;
+  }
+
+  public void setId(long id) {
+    this.id = id;
+  }
 }

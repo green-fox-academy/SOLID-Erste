@@ -10,7 +10,7 @@ public class CardInDTO {
   private String cardType;
   @NotNull
   @CreditCardNumber(ignoreNonDigitCharacters = true)
-  @Size(min = 19, max = 19)
+  @Size(min = 16, max = 19)
   private String cardNumber;
   @NotNull
   @Size(min = 5, max = 5)
