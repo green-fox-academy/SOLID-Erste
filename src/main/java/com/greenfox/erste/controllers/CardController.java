@@ -38,7 +38,6 @@ public class CardController {
     Card cardToAdd = cardService.convertFromDto(newCardInDTO);
     cardService.save(cardToAdd);
     return new ResponseEntity(HttpStatus.OK);
-
   }
 
   @PostMapping("/ecards/validate")
