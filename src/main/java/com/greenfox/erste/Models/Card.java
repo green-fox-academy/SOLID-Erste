@@ -1,11 +1,9 @@
 package com.greenfox.erste.Models;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.*;
-
 
 @Entity
 public class Card {
@@ -19,12 +17,10 @@ public class Card {
   private boolean disabled = false;
   private String owner;
   @ManyToOne
-//  @JsonManagedReference
   private ContactInfo contact;
 
   public Card(String cardType, String cardNumber, String validThru, String cardHash,
       boolean disabled, String owner, ContactInfo contact) {
-//    contact.addCard(this);
     this.cardType = cardType;
     this.cardNumber = cardNumber;
     this.validThru = validThru;
@@ -34,7 +30,6 @@ public class Card {
     this.contact = contact;
   }
   public Card(){}
-
 
   public ContactInfo getContact() {
     return contact;
