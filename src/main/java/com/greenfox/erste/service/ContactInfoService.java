@@ -1,10 +1,7 @@
 package com.greenfox.erste.service;
 
-import ch.qos.logback.classic.pattern.ClassNameOnlyAbbreviator;
 import com.greenfox.erste.Models.ContactInfo;
-import com.greenfox.erste.repository.ICardRepository;
 import com.greenfox.erste.repository.IContactInfoRepository;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +26,7 @@ public class ContactInfoService implements IContactInfoService {
 
   @Override
   public void save(ContactInfo contactInfo) {
-  contactInfoRepository.save(contactInfo);
+    contactInfoRepository.save(contactInfo);
   }
 
   @Override
