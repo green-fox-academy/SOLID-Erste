@@ -14,10 +14,6 @@ public interface ICardService {
 
   void save(Card card);
 
-  Card convertFromDto(CardInDTO cardInDTO);
-
-  CardOutDTO convertToDto(Card card);
-
   void delete(String id);
 
 }
