@@ -1,13 +1,12 @@
 package com.greenfox.erste.Models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.CreditCardNumber;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class CardInDTO {
-
   @NotNull
   private String cardType;
   @NotNull
@@ -24,18 +23,16 @@ public class CardInDTO {
   @NotNull
   private String owner;
   @NotNull
-  @JsonProperty("contact-info")
-  private ContactInfo contactInfo;
+  private ContactInfo contact;
 
-  public CardInDTO() {
-  }
+  public CardInDTO(){};
 
   public ContactInfo getContact() {
-    return contactInfo;
+    return contact;
   }
 
-  public void setContact(ContactInfo contactInfo) {
-    this.contactInfo = contactInfo;
+  public void setContact(ContactInfo contact) {
+    this.contact = contact;
   }
 
   public String getCardType() {
@@ -62,12 +59,11 @@ public class CardInDTO {
     this.validThru = validThru;
   }
 
-  public String getCvv() {
+  public String getCVV() {
     return cvv;
   }
-
-  public void setCvv(String cvv) {
-
+  
+  public void setCVV(String cvv) {
     this.cvv = cvv;
   }
 

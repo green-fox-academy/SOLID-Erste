@@ -1,48 +1,41 @@
 package com.greenfox.erste.Models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
 public class ContactInfo {
-
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
   @NotNull
   private String type;
   @NotNull
-  @Id
-  @Column(nullable = false, unique = true, columnDefinition = "VARCHAR(64)")
   private String contact;
-  @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  @JsonBackReference
-  private List<Card> cards = new ArrayList<>();
+  @OneToOne
+  private Card card;
 
-  public ContactInfo(@NotNull String type, @NotNull String contact, List<Card> cards) {
+  public Card getCard() {
+    return card;
+  }
+
+  public void setCard(Card card) {
+    this.card = card;
+  }
+
+  public ContactInfo(@NotNull String type, @NotNull String contact) {
     this.type = type;
     this.contact = contact;
-    this.cards = cards;
   }
 
-  public ContactInfo() {
+  public ContactInfo(){};
+
+  public long getId() {
+    return id;
   }
 
-  public List<Card> getCards() {
-    return cards;
-  }
-
-  public void setCards(List<Card> cards) {
-    this.cards = cards;
-  }
-
-  public void addCard(Card newCard) {
-    cards.add(newCard);
+  public void setId(long id) {
+    this.id = id;
   }
 
   public String getType() {
