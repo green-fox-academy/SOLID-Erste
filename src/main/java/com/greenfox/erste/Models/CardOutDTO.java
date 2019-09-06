@@ -1,5 +1,9 @@
 package com.greenfox.erste.Models;
 
+import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
+import java.util.List;
+
 public class CardOutDTO {
   private String cardType;
   private String cardNumber;
