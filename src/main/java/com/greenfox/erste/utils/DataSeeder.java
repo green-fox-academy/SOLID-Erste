@@ -1,4 +1,4 @@
-package com.greenfox.erste.Utils;
+package com.greenfox.erste.utils;
 
 import com.greenfox.erste.models.Card;
 import com.greenfox.erste.models.ContactInfo;
