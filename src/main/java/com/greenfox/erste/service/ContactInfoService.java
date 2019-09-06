@@ -1,6 +1,6 @@
 package com.greenfox.erste.service;
 
-import com.greenfox.erste.Models.ContactInfo;
+import com.greenfox.erste.models.ContactInfo;
 import com.greenfox.erste.repository.IContactInfoRepository;
 import org.springframework.stereotype.Service;
 

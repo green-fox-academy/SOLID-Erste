@@ -1,4 +1,4 @@
-package com.greenfox.erste.Utils;
+package com.greenfox.erste.utils;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

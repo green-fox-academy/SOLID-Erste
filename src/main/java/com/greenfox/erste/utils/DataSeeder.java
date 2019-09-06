@@ -1,7 +1,7 @@
 package com.greenfox.erste.Utils;
 
-import com.greenfox.erste.Models.Card;
-import com.greenfox.erste.Models.ContactInfo;
+import com.greenfox.erste.models.Card;
+import com.greenfox.erste.models.ContactInfo;
 import com.greenfox.erste.repository.ICardRepository;
 import com.greenfox.erste.repository.IContactInfoRepository;
 import java.util.ArrayList;
