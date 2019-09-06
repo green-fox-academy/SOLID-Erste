@@ -1,19 +1,21 @@
 package com.greenfox.erste.controllers;
 
 import com.greenfox.erste.Models.Card;
-import com.greenfox.erste.Models.CardOutDTO;
-import com.greenfox.erste.service.ICardService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 import com.greenfox.erste.Models.CardInDTO;
+import com.greenfox.erste.Models.CardOutDTO;
 import com.greenfox.erste.Models.CardValidatorInDTO;
 import com.greenfox.erste.Models.ContactInfo;
+import com.greenfox.erste.service.ICardService;
 import com.greenfox.erste.service.IContactInfoService;
+import com.greenfox.erste.service.ILoggingService;
 import javax.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -25,16 +27,20 @@ public class CardController {
 
   private ICardService cardService;
   private IContactInfoService contactInfoService;
+  private ILoggingService loggingService;
 
-  CardController(ICardService cardService, IContactInfoService contactInfoService) {
+  CardController(ICardService cardService, IContactInfoService contactInfoService,
+      ILoggingService loggingService) {
     this.cardService = cardService;
     this.contactInfoService = contactInfoService;
+    this.loggingService = loggingService;
   }
 
   @RequestMapping(method = RequestMethod.GET, value = "/{cardNumber}")
   public ResponseEntity getCard(@PathVariable String cardNumber) {
     Card newCard = cardService.findById(cardNumber);
     if (newCard == null) {
+      loggingService.generateLogs("card number not found");
       return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
     CardOutDTO cardToReturn = cardService.convertToDto(newCard);
