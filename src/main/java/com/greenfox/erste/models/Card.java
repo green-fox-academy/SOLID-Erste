@@ -1,4 +1,4 @@
-package com.greenfox.erste.Models;
+package com.greenfox.erste.models;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import javax.persistence.Column;

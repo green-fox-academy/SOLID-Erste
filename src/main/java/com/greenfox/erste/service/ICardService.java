@@ -1,10 +1,10 @@
 package com.greenfox.erste.service;
 
-import com.greenfox.erste.Models.Card;
-import com.greenfox.erste.Models.CardValidatorInDTO;
+import com.greenfox.erste.models.Card;
+import com.greenfox.erste.models.CardValidatorInDTO;
 
-import com.greenfox.erste.Models.CardInDTO;
-import com.greenfox.erste.Models.CardOutDTO;
+import com.greenfox.erste.models.CardInDTO;
+import com.greenfox.erste.models.CardOutDTO;
 import java.util.List;
 
 public interface ICardService {

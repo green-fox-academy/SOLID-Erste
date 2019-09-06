@@ -1,4 +1,4 @@
-package com.greenfox.erste.Models;
+package com.greenfox.erste.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.CreditCardNumber;
